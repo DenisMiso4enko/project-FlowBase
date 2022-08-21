@@ -1,0 +1,108 @@
+$primary: #19191B;
+$secondary: #696871;
+$orange: #FF7143;
+$purple: #5454D4;
+$darkOrange: #9F3919;
+
+$h1: 80px;
+$h2: 60px;
+$h3: 50px;
+$h4: 24px;
+$h5: 20px;
+$h6: 17px;
+
+@mixin btnOrange {
+    background-color: $orange;
+    color: #fff;
+    font-size: $h6;
+    font-weight: bold;
+    line-height: 20px;
+    letter-spacing: -0.531474px;
+    padding: 19px 60px;
+    text-transform: capitalize;
+    border-radius: 10px;
+    transition: .3s;
+}
+
+@mixin btnPurple {
+    background-color: $purple;
+    color: #fff;
+    font-size: $h6;
+    font-weight: bold;
+    line-height: 20px;
+    letter-spacing: -0.531474px;
+    padding: 19px 60px;
+    text-transform: capitalize;
+    border-radius: 10px;
+    transition: .3s;
+}
+
+// font-family: 'DM Sans', sans-serif;
+// font-family: 'Inter', sans-serif;
+// font-family: 'Mulish', sans-serif;
+
+@mixin header {
+    font-family: 'DM Sans', sans-serif;
+    font-size: $h1;
+    font-weight: bold;
+    line-height: 77px;
+    letter-spacing: -2.50105px;
+    color: $primary;
+    margin-bottom: 30px;
+}
+
+@mixin title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: $h3;
+    font-weight: bold;
+    line-height: 57px;
+    letter-spacing: -1.56316px;
+    color: $primary;
+    margin-bottom: 30px;
+}
+@mixin titleCards {
+    font-family: 'DM Sans', sans-serif;
+    font-size: $h4;
+    font-weight: bold;
+    line-height: 36px;
+    letter-spacing: -0.750316px;
+    color: $primary;
+    margin-bottom: 20px;
+    text-align: center;
+}
+@mixin text {
+    font-family: 'Mulish', sans-serif;
+    font-size: $h5;
+    line-height: 30px;
+    letter-spacing: -0.625263px;
+    color: $secondary;
+    margin-bottom: 30px;
+}
+
+@mixin link {
+    font-family: 'DM Sans', sans-serif;
+    font-size: $h6;
+    line-height: 20px;
+    letter-spacing: -0.531474px;
+    color: $purple;
+}
+@mixin navLinks {
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: -0.468947px;
+    color: $secondary;
+}
+@mixin btnPrising {
+    background-color: #fff;
+    color: $purple;
+    font-size: $h6;
+    font-weight: bold;
+    line-height: 20px;
+    letter-spacing: -0.531474px;
+    padding: 19px 90px;
+    text-transform: capitalize;
+    border-radius: 10px;
+    border: 1px solid #EAE9F2;
+    transition: .3s;
+}
