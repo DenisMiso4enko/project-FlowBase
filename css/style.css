@@ -46,32 +46,26 @@ a {
 @media (max-width: 830px) {
   .nav {
     position: fixed;
-    left: -120%;
+    left: -150%;
     top: 61px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     background-color: #fff;
     width: 100%;
     min-height: 100%; /* !!!!!!!!!!!!!! */
     display: block; /* !!!!!!!!!!!!!!!!! */
     text-align: center;
     transition: 0.3s;
-    padding: 100px 0;
+    padding: 150px 0;
   }
   .nav.active {
     left: 0;
   }
   .nav.active .menu__list {
     flex-direction: column;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
   }
 }
 
-.menu { /* FIXME: подобрать размер шрифта */
-  flex: 1 1 auto;
-}
+.menu { /* FIXME: подобрать размер шрифта */ }
 .menu__list {
   flex: 1 1 auto;
   display: flex;
@@ -84,10 +78,24 @@ a {
   letter-spacing: -0.468947px;
   color: #696871;
   position: relative;
-  transition: 0.3s;
+}
+@media (max-width: 830px) {
+  .menu__link {
+    font-size: 30px;
+  }
 }
 .menu__link.active, .menu__link:hover {
   color: #19191B;
+  transition: 0.3s;
+}
+.menu__link::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #5454D4;
+  bottom: -10px;
+  transition: all 0.3s;
 }
 .menu__link:hover::before, .menu__link.active:before {
   content: "";
@@ -96,7 +104,6 @@ a {
   height: 2px;
   background-color: #5454D4;
   bottom: -10px;
-  transition: 0.3s;
 }
 
 .btn-orange {
@@ -110,6 +117,12 @@ a {
   text-transform: capitalize;
   border-radius: 10px;
   transition: 0.3s;
+}
+@media (max-width: 830px) {
+  .btn-orange {
+    padding: 30px 60px;
+    font-size: 30px;
+  }
 }
 .btn-orange:hover {
   background-color: #9F3919;
@@ -318,6 +331,9 @@ a {
   line-height: 20px;
   letter-spacing: -0.531474px;
   color: #5454D4;
+}
+.feature__link:hover {
+  text-decoration: underline;
 }
 .feature__metrics {
   display: flex;
