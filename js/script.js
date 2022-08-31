@@ -14,7 +14,7 @@ document.querySelectorAll('.menu__list').forEach(n => n.addEventListener('click'
 }))
 
 
-// scroll
+
 const btnYearly = document.querySelector('.choose-btn--1')
 const btnMonthly = document.querySelector('.choose-btn')
 btnYearly.addEventListener('click', changeBtns)
@@ -25,41 +25,40 @@ function changeBtns() {
     btnYearly.classList.toggle('active')
     btnMonthly.classList.toggle('active')
 }
-//
-const links = document.querySelectorAll('nav li a')
-const sec = document.querySelectorAll('section')
-const header = document.querySelector('header')
 
-function activeMenu() {
-    let lenght = sec.length
-    while(--lenght && window.scrollY + 97 < sec[lenght].offsetTop){}
-    links.forEach(link => link.classList.remove('active'))
-    links[lenght].classList.add('active')
-}
-activeMenu()
-window.addEventListener('scroll', activeMenu)
+// scroll
+const sections = document.querySelectorAll('section')
+const links = document.querySelectorAll('.menu__link')
+const menuList = document.querySelector('.menu__list')
 
-document.querySelectorAll('a[href^="#"]').forEach(link => {
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            links.forEach((link) => {
+                if (link.getAttribute('href').replace('#', '') === entry.target.id) {
+                    link.classList.add('active')
+                } else {
+                    link.classList.remove('active')
+                }
+               
+            })
+        }
+    })
+}, {
+    threshold: 0.7,
+})
+sections.forEach((section) => observer.observe(section))
 
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-
-        let href = this.getAttribute('href').substring(1);
-
-        const scrollTarget = document.getElementById(href);
-
-        const topOffset =  80 //document.querySelector('header').offsetHeight;
-        // const topOffset = 0; // если не нужен отступ сверху
-        const elementPosition = scrollTarget.getBoundingClientRect().top;
-        const offsetPosition = elementPosition - topOffset;
-
-        window.scrollBy({
-            top: offsetPosition,
-            behavior: 'smooth'
-        });
-    });
-});
-
+menuList.addEventListener('click', (e) => {
+    if (e.target.classList.contains('menu__link')) {
+        e.preventDefault()
+        const id = e.target.getAttribute('href').replace('#', '')
+        window.scrollTo({
+            top: document.getElementById(id).offsetTop,
+            behavior: "smooth",
+        })
+    }
+})
 
 //slider
 const swiper = new Swiper('.swiper', {
